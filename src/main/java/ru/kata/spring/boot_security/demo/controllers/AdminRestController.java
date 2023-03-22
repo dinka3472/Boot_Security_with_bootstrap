@@ -31,7 +31,7 @@ public class AdminRestController {
     }
 
 
-    @GetMapping("/hello")
+   /* @GetMapping("/hello")
     public String demo() {
         return "Hello";
     }
@@ -79,5 +79,5 @@ public class AdminRestController {
 
    private UserDTO createDTOfromUser(User user) {
         return  modelMapper.map(user, UserDTO.class);
-   }
+   }*/
 }

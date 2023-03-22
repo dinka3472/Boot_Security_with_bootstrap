@@ -80,6 +80,7 @@
                         modal.find('#newEmail').val(data.email),
                         modal.find('#newPassword').val(data.password),
                         modal.find('#newRoles').val(data.roles);
+                    console.log(data);
                 },
                 error: (err) => {
                     alert(err);

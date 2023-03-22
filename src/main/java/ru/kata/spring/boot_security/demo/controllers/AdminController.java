@@ -41,7 +41,7 @@ public class AdminController {
         User user = userService.findByUsername(principal.getName()).orElseThrow();
         model.addAttribute("users", userService.findAllUsers());
         model.addAttribute("user", user);
-        model.addAttribute("newUser", new User());
+       // model.addAttribute("newUser", new User());
         model.addAttribute("rolesList", roleService.getRoles());
         return "index1";
     }
@@ -78,7 +78,7 @@ public class AdminController {
             model.addAttribute("users", userService.findAllUsers());
             model.addAttribute("rolesList", roleService.getRoles());
         } else if (tab.equals("tab2")) {
-            model.addAttribute("newUser", new User());
+           // model.addAttribute("newUser", new User());
             model.addAttribute("rolesList", roleService.getRoles());
         }
         return "_" + tab;

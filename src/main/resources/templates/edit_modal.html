@@ -8,7 +8,7 @@
 </head>
 <body>
 
-<div class="modal fade" th:fragment="modal(id)" id="deleteUserModal" th:id="${id}" tabindex="-1"  aria-labelledby="exampleModalLabel"
+<div class="modal fade" th:fragment="modal(id)" id="editUserModal" th:id="${id}" tabindex="-1"  aria-labelledby="exampleModalLabel"
      aria-hidden="true">
     <div class="modal-dialog modal-dialog-scrollable">
         <div class="modal-content">
@@ -19,37 +19,37 @@
                 </button>
             </div>
             <div class="modal-body" >
-                <form class="was-validated"  >
+                <form class="was-validated" id="form_edit_user" >
                     <div class="form-group">
                         <label for="newId" class="col-form-label">Id:</label>
-                        <input type="text" th:name="id" class="form-control" id="newId" required>
+                        <input type="text" value="id" name="id" class="form-control" id="newId" readonly="true" required>
                     </div>
                     <div class="form-group">
                         <label for="newFirstName">First name</label>
-                        <input type="text"  th:name="firstName" class="form-control" id="newFirstName" required >
+                        <input type="text"  value="firstName" name="firstName" class="form-control" id="newFirstName" required >
                     </div>
                     <div class="form-group">
                         <label for="newSecondName">Second name</label>
-                        <input type="text" th:name="secondName" class="form-control" id="newSecondName" required >
+                        <input type="text" value="secondName" name="secondName" class="form-control" id="newSecondName" required >
                     </div>
                     <div class="form-group">
                         <label for="newAge">Age</label>
-                        <input type="text" th:name="age" class="form-control" id="newAge" required >
+                        <input type="text" value="age" name="age" class="form-control" id="newAge" required >
                     </div>
                     <div class="form-group">
                         <label for="newEmail">Email</label>
-                        <input type="email"  th:name="email" class="form-control" id="newEmail" required>
+                        <input type="email" value="email" name="email" class="form-control" id="newEmail" required>
                     </div>
                     <div class="form-group">
                         <label for="newPassword">Password</label>
-                        <input type="password" th:name="password" class="form-control" id="newPassword" required >
+                        <input type="password" value="password" name="password" class="form-control" id="newPassword" required >
                     </div>
 
                     <div class="form-group">
-                        <form th:name="roles"  >
+                        <form id="form_edit_roles" th:name="roles"  >
                             <label for="newRoles">Roles</label>
                             <select multiple class="form-control" id="newRoles" required >
-                                <option th:each="role : ${rolesList}"  th:value="${role.name}"  th:text="${role.name}"></option>
+                                <option th:each="role : ${rolesList}"  th:value="${role.name}" th:name="name" th:text="${role.name}"></option>
                             </select>
                         </form>
                     </div>

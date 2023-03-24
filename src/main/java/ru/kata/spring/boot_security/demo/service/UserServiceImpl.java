@@ -29,8 +29,9 @@ public class UserServiceImpl implements UserService {
     public Optional<User> findByUsername(String username) {
         return userRepository.findByFirstName(username);
     }
+
     @Override
-    public List<User> findAllUsers() {
+    public List<User>  findAllUsers() {
         return userRepository.findAll();
     }
 
@@ -58,7 +59,9 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    @Transactional
     public void deleteUser(Long id) {
+        findUserById(id);
         userRepository.deleteById(id);
     }
 }

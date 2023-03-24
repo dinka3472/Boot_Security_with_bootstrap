@@ -1,18 +1,16 @@
 package ru.kata.spring.boot_security.demo.DTO;
 
-import org.hibernate.annotations.Fetch;
-import org.hibernate.annotations.FetchMode;
-import ru.kata.spring.boot_security.demo.models.Role;
+import org.springframework.validation.annotation.Validated;
 
-import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotEmpty;
 import java.util.Collection;
 import java.util.HashSet;
-
+@Validated
 public class UserDTO {
 
+    private Long id;
 
     @NotEmpty(message = "FirstName should not be empty")
     private String firstName;
@@ -34,7 +32,7 @@ public class UserDTO {
 
 
     @NotEmpty(message = "User should have any role")
-    private Collection<Role> roles = new HashSet<>();
+    private Collection<RoleDTO> roles = new HashSet<>();
 
     public String getFirstName() {
         return firstName;
@@ -76,11 +74,33 @@ public class UserDTO {
         this.email = email;
     }
 
-    public Collection<Role> getRoles() {
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public Collection<RoleDTO> getRoles() {
         return roles;
     }
 
-    public void setRoles(Collection<Role> roles) {
+    public void setRoles(Collection<RoleDTO> roles) {
         this.roles = roles;
+    }
+
+    @Override
+    public String toString() {
+        return "UserDTO{" +
+                "id=" + id +
+                ", firstName='" + firstName + '\'' +
+                ", secondName='" + secondName + '\'' +
+                ", age=" + age +
+                ", password='" + password + '\'' +
+                ", email='" + email + '\'' +
+                ", rolesDTO=" + roles +
+                '}';
     }
 }

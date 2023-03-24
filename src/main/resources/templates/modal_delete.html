@@ -48,8 +48,8 @@
                     <div class="form-group">
                         <form th:name="roles"  >
                             <label for="delRoles">Roles</label>
-                            <select multiple class="form-control" id="delRoles"  >
-                                <option th:each="role : ${rolesList}"  th:value="${role.name}"  th:text="${role.name}"></option>
+                            <select multiple class="form-control" id="delRoles" disabled >
+                                <option th:each="role : ${rolesList}"  th:value="${role.name}" th:readonly="true" th:text="${role.name}"></option>
                             </select>
                         </form>
                     </div>

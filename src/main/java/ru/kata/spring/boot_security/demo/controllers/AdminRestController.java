@@ -72,7 +72,7 @@ public class AdminRestController {
     @ResponseBody
     public ResponseEntity<HttpStatus> updateUser(@RequestBody @Valid UserDTO userDTO, BindingResult bindingResult) {
         checkBindinfResultErrors(bindingResult);
-        userService.saveUser(createUserFromDTO(userDTO));
+        userService.updateUser(createUserFromDTO(userDTO));
         return ResponseEntity.ok(HttpStatus.OK);
     }
 
